@@ -1,37 +1,46 @@
-import java.util.ArrayList;
-
 public class Main {
     public static void main(String[] args) {
-        
-        // --- PARTE 1: Declaración de distintos tipos de listas ---
+        ListaEnlazada lista = new ListaEnlazada();
 
-        // 1. Lista de enteras (En listas de Java se usa la clase 'Integer' en lugar de 'int')
-        ArrayList<Integer> listaEnteros = new ArrayList<>();
+        System.out.println("¿Está vacía? " + lista.estaVacia());
 
-        // 2. Lista de cadenas (Textos)
-        ArrayList<String> listaCadenas = new ArrayList<>();
+        // Insertamos al final
+        lista.insertarAlFinal(10);
+        lista.insertarAlFinal(20);
+        lista.insertarAlFinal(30);
+        System.out.print("Tras insertar 10, 20, 30 al final: ");
+        lista.imprimir();
 
-        // 3. Lista de booleanas (Verdadero o falso)
-        ArrayList<Boolean> listaBooleanas = new ArrayList<>();
+        // Insertamos al inicio
+        lista.insertarAlInicio(5);
+        System.out.print("Tras insertar 5 al inicio: ");
+        lista.imprimir();
 
+        // Buscar
+        System.out.println("¿Contiene 20? " + lista.buscar(20));
+        System.out.println("¿Contiene 99? " + lista.buscar(99));
 
-        // --- PARTE 2: Ejemplos de usos en programación 
+        // Contar
+        System.out.println("Tamaño: " + lista.contar());
 
-        // Uso 1: Almacenar colecciones de datos relacionados (ej. inventario o nombres)
-        listaCadenas.add("Monitor");
-        listaCadenas.add("Teclado");
-        System.out.println("Inventario actual: " + listaCadenas);
+        // Obtener por índice
+        System.out.println("Elemento en índice 2: " + lista.obtener(2));
 
-        // Uso 2: Guardar valores numéricos para procesarlos (ej. calificaciones de un semestre)
-        listaEnteros.add(95);
-        listaEnteros.add(88);
-        listaEnteros.add(100);
-        System.out.println("Calificaciones guardadas: " + listaEnteros);
+        // Eliminar
+        lista.eliminar(10);
+        System.out.print("Tras eliminar 10: ");
+        lista.imprimir();
 
-        // Uso 3: Registrar estados o historiales (ej. respuestas de un examen de Verdadero/Falso)
-        listaBooleanas.add(true);
-        listaBooleanas.add(false);
-        listaBooleanas.add(true);
-        System.out.println("Registro de respuestas: " + listaBooleanas);
+        lista.eliminar(5); // borra la cabeza
+        System.out.print("Tras eliminar la cabeza (5): ");
+        lista.imprimir();
+
+        lista.eliminar(30); // borra el último
+        System.out.print("Tras eliminar el último (30): ");
+        lista.imprimir();
+
+        lista.eliminar(20); // deja la lista vacía
+        System.out.print("Tras eliminar todo: ");
+        lista.imprimir();
     }
 }
