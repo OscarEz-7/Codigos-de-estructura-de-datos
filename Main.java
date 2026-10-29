@@ -1,37 +1,58 @@
-import java.util.ArrayList;
-
+/**
+ * Clase principal encargada de la ejecución de pruebas y validación del 
+ * comportamiento de las estructuras Pila y Cola.
+ */
 public class Main {
     public static void main(String[] args) {
+        System.out.println("==========================================");
+        System.out.println("   DEMOSTRACIÓN DE ESTRUCTURAS DE DATOS   ");
+        System.out.println("==========================================\n");
+
+        // --- PRUEBA DE PILA (LIFO) ---
+        System.out.println("1. PRUEBA DE PILA (LIFO)");
+        System.out.println("------------------------------------------");
+        Pila pila = new Pila();
+
+        System.out.println("¿La pila está vacía?: " + pila.estaVacia());
         
-        // --- PARTE 1: Declaración de distintos tipos de listas ---
+        System.out.println("Apilando valores: 10, 20, 30");
+        pila.push(10);
+        pila.push(20);
+        pila.push(30);
 
-        // 1. Lista de enteras (En listas de Java se usa la clase 'Integer' en lugar de 'int')
-        ArrayList<Integer> listaEnteros = new ArrayList<>();
+        System.out.print("Contenido actual de la pila: ");
+        pila.imprimir();
 
-        // 2. Lista de cadenas (Textos)
-        ArrayList<String> listaCadenas = new ArrayList<>();
+        System.out.println("Elemento en la cima (peek): " + pila.peek());
+        System.out.println("Desapilando elemento (pop): " + pila.pop());
 
-        // 3. Lista de booleanas (Verdadero o falso)
-        ArrayList<Boolean> listaBooleanas = new ArrayList<>();
+        System.out.print("Pila tras el pop: ");
+        pila.imprimir();
+        System.out.println("Número de elementos restantes: " + pila.tamaño());
 
+        System.out.println("\n------------------------------------------\n");
 
-        // --- PARTE 2: Ejemplos de usos en programación 
+        // --- PRUEBA DE COLA (FIFO) ---
+        System.out.println("2. PRUEBA DE COLA (FIFO)");
+        System.out.println("------------------------------------------");
+        Cola cola = new Cola();
 
-        // Uso 1: Almacenar colecciones de datos relacionados (ej. inventario o nombres)
-        listaCadenas.add("Monitor");
-        listaCadenas.add("Teclado");
-        System.out.println("Inventario actual: " + listaCadenas);
+        System.out.println("¿La cola está vacía?: " + cola.estaVacia());
 
-        // Uso 2: Guardar valores numéricos para procesarlos (ej. calificaciones de un semestre)
-        listaEnteros.add(95);
-        listaEnteros.add(88);
-        listaEnteros.add(100);
-        System.out.println("Calificaciones guardadas: " + listaEnteros);
+        System.out.println("Encolando valores: 10, 20, 30");
+        cola.encolar(10);
+        cola.encolar(20);
+        cola.encolar(30);
 
-        // Uso 3: Registrar estados o historiales (ej. respuestas de un examen de Verdadero/Falso)
-        listaBooleanas.add(true);
-        listaBooleanas.add(false);
-        listaBooleanas.add(true);
-        System.out.println("Registro de respuestas: " + listaBooleanas);
+        System.out.print("Contenido actual de la cola: ");
+        cola.imprimir();
+
+        System.out.println("Primer elemento en cola (verFrente): " + cola.verFrente());
+        System.out.println("Desencolando elemento (desencolar): " + cola.desencolar());
+
+        System.out.print("Cola tras el desencolar: ");
+        cola.imprimir();
+        System.out.println("Número de elementos restantes: " + cola.tamaño());
+        System.out.println("==========================================");
     }
 }
